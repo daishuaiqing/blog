@@ -1,0 +1,24 @@
+server:
+  port: 8888
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:blog.db
+    username:
+    password:
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true #开启驼峰映射
+
+# 分页配置
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+  support-methods-arguments: true
+  params: count=countSql
+
+logging:
+  level:
+    #打印SQL信息
+    com.daishuaiqing.blog.mapper: debug
