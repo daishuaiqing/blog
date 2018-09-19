@@ -1,2 +1,2 @@
 # blog
-SpringBoot JPA +SQLite
+SpringBoot + MyBatis + SQLite
