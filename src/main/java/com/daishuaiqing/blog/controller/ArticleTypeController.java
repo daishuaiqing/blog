@@ -1,6 +1,8 @@
 package com.daishuaiqing.blog.controller;
 
 import com.daishuaiqing.blog.entity.ArticleType;
+import com.daishuaiqing.blog.model.MyResult;
+import com.daishuaiqing.blog.model.SuccessResult;
 import com.daishuaiqing.blog.service.ArticleTypeService;
 import com.daishuaiqing.blog.util.DateUtil;
 import io.swagger.annotations.Api;
@@ -19,8 +21,8 @@ public class ArticleTypeController {
 
     @ApiOperation("文章类型列表")
     @GetMapping("/articleType/list")
-    public List<ArticleType> list(ArticleType articleType) {
-        return articleTypeService.list(articleType);
+    public MyResult list(ArticleType articleType) {
+        return new SuccessResult(articleTypeService.list(articleType));
     }
 
     @ApiOperation("文章类型信息")
