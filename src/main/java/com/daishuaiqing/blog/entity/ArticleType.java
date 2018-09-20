@@ -1,6 +1,7 @@
 package com.daishuaiqing.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
 import javax.validation.constraints.NotBlank;
@@ -16,6 +17,7 @@ public class ArticleType {
     @NotNull(message = "权重不能为空")
     private Integer level;
     private Integer createTime;
+    @JsonIgnore
     private Boolean deleteFlag;
 
     public Integer getId() {

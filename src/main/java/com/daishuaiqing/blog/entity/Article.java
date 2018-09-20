@@ -1,5 +1,7 @@
 package com.daishuaiqing.blog.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,10 +9,10 @@ public class Article implements Serializable {
 
     private Integer id;
     private Integer typeId;
-    private Date createTime;
+    private Integer createTime;
     private String title;
     private String content;
-
+    @JsonIgnore
     private Boolean deleteFlag;
 
     public Integer getId() {
@@ -29,11 +31,11 @@ public class Article implements Serializable {
         this.typeId = typeId;
     }
 
-    public Date getCreateTime() {
+    public Integer getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(Date createTime) {
+    public void setCreateTime(Integer createTime) {
         this.createTime = createTime;
     }
 
