@@ -1,11 +1,13 @@
 package com.daishuaiqing.blog.entity;
 
 
+import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
 @Table(name = "user")
 public class User implements Serializable {
 
+    @Id
     private Integer id;
     private String userName;
     private String password;

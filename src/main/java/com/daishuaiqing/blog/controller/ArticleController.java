@@ -30,7 +30,7 @@ public class ArticleController {
     }
 
     @ApiOperation("修改文章信息")
-    @ApiImplicitParam(name = "user", value = "单个文章信息", dataType = "User")
+    @ApiImplicitParam(name = "article", value = "单个文章信息", dataType = "Article")
     @PutMapping("/article/update")
     public int update(@RequestBody Article article) {
         return articleService.update(article);

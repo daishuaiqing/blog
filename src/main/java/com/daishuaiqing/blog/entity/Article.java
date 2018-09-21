@@ -2,11 +2,13 @@ package com.daishuaiqing.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
 public class Article implements Serializable {
 
+    @Id
     private Integer id;
     private Integer typeId;
     private Integer createTime;

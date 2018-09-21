@@ -35,6 +35,7 @@ public class ArticleTypeController {
     @ApiImplicitParam(name = "user", value = "单个用户信息", dataType = "User")
     @PutMapping("/articleType/update")
     public int update(@RequestBody ArticleType articleType) {
+        articleType.setDeleteFlag(false);
         return articleTypeService.update(articleType);
     }
 

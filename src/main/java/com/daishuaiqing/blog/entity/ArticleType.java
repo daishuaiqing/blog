@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 
+import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
@@ -11,6 +12,7 @@ import javax.validation.constraints.NotNull;
 
 public class ArticleType {
 
+    @Id
     private Integer id;
     @NotBlank(message = "分类名称不能为空")
     private String typeName;
