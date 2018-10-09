@@ -14,8 +14,17 @@ public class Article implements Serializable {
     private Integer createTime;
     private String title;
     private String content;
+    private String summary;
     @JsonIgnore
     private Boolean deleteFlag;
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 
     public Integer getId() {
         return id;
