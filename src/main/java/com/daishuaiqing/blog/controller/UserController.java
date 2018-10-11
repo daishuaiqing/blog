@@ -54,8 +54,14 @@ public class UserController {
 */
     @ApiOperation("用户登录")
     @PostMapping("/user/login")
-    public MyResult login(User user){
+    public MyResult login(@RequestBody User user){
         return userService.login(user);
+    }
+
+    @ApiOperation("用户Token缓存")
+    @GetMapping("/get/token")
+    public MyResult getToken(String token){
+        return new SuccessResult(userService.getToken(token));
     }
 
 }

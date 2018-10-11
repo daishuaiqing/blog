@@ -29,4 +29,8 @@ public class UserService {
             return new ExceptionResult("账号或密码错误");
         }
     }
+
+    public User getToken(String token) {
+        return (User) localCache.getValue(token);
+    }
 }

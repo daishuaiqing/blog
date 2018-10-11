@@ -99,8 +99,8 @@ public class LocalCache {
      * @return
      */
     public Object getValue(String key) {
-        return cache.get(key).getValue();
-
+        CacheEntity cacheEntity = cache.get(key);
+        return cacheEntity==null?null:cache.get(key).getValue();
     }
 
     /**
