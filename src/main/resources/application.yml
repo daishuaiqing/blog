@@ -6,17 +6,11 @@ spring:
     url: jdbc:sqlite:blog.db
     username:
     password:
-
-mybatis:
-  configuration:
-    map-underscore-to-camel-case: true #开启驼峰映射
-
-# 分页配置
-pagehelper:
-  helper-dialect: mysql
-  reasonable: true
-  support-methods-arguments: true
-  params: count=countSql
+  jpa:
+    database-platform: com.daishuaiqing.blog.config.SQLiteDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
 
 logging:
   level:

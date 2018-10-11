@@ -34,14 +34,14 @@ public class ArticleTypeController {
     @ApiOperation("修改文章类型信息")
     @ApiImplicitParam(name = "user", value = "单个用户信息", dataType = "User")
     @PutMapping("/articleType/update")
-    public int update(@RequestBody ArticleType articleType) {
+    public ArticleType update(@RequestBody ArticleType articleType) {
         articleType.setDeleteFlag(false);
         return articleTypeService.update(articleType);
     }
 
     @ApiOperation("新增文章类型")
     @PostMapping("/articleType/save")
-    public int save(@RequestBody ArticleType articleType) {
+    public ArticleType save(@RequestBody ArticleType articleType) {
         articleType.setCreateTime(DateUtil.getUnixMillis());
         articleType.setDeleteFlag(false);
         return articleTypeService.save(articleType);
@@ -49,7 +49,7 @@ public class ArticleTypeController {
 
     @ApiOperation("删除文章类型")
     @DeleteMapping("/articleType/delete")
-    public int delete(ArticleType articleType) {
+    public Boolean delete(ArticleType articleType) {
         return articleTypeService.delete(articleType);
     }
 

@@ -1,6 +1,8 @@
 package com.daishuaiqing.blog.controller;
 
 import com.daishuaiqing.blog.entity.User;
+import com.daishuaiqing.blog.model.MyResult;
+import com.daishuaiqing.blog.model.SuccessResult;
 import com.daishuaiqing.blog.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -19,7 +21,7 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    @ApiOperation("获取列表")
+    /*@ApiOperation("获取列表")
     @GetMapping("/user/list")
     public List<User> list(User user) {
         return userService.list(user);
@@ -48,6 +50,12 @@ public class UserController {
     @DeleteMapping("/user/delete")
     public int delete(User user) {
         return userService.delete(user);
+    }
+*/
+    @ApiOperation("用户登录")
+    @PostMapping("/user/login")
+    public MyResult login(User user){
+        return userService.login(user);
     }
 
 }

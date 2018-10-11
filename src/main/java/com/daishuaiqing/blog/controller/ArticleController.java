@@ -32,13 +32,13 @@ public class ArticleController {
     @ApiOperation("修改文章信息")
     @ApiImplicitParam(name = "article", value = "单个文章信息", dataType = "Article")
     @PutMapping("/article/update")
-    public int update(@RequestBody Article article) {
+    public Article update(@RequestBody Article article) {
         return articleService.update(article);
     }
 
     @ApiOperation("新增文章")
     @PostMapping("/article/save")
-    public int save(@RequestBody Article article) {
+    public Article save(@RequestBody Article article) {
         article.setCreateTime(DateUtil.getUnixMillis());
         article.setDeleteFlag(false);
         return articleService.save(article);
@@ -46,7 +46,7 @@ public class ArticleController {
 
     @ApiOperation("删除文章")
     @DeleteMapping("/article/delete")
-    public int delete(Article article) {
+    public Boolean delete(Article article) {
         return articleService.delete(article);
     }
 

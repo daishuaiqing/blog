@@ -37,10 +37,9 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency> <!--添加Mybatis依赖 -->
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.3.2</version>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <!--SQLite 依赖-->
@@ -57,17 +56,6 @@
             <version>2.1.1</version>
         </dependency>
 
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper-spring-boot-starter</artifactId>
-            <version>2.0.3-beta1</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper-spring-boot-starter</artifactId>
-            <version>1.2.5</version>
-        </dependency>
 
         <dependency><!--添加Swagger依赖 -->
             <groupId>io.springfox</groupId>

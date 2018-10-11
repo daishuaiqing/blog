@@ -2,10 +2,11 @@ package com.daishuaiqing.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
-
+@Entity
 public class Article implements Serializable {
 
     @Id
