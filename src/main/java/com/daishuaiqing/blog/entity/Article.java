@@ -1,6 +1,8 @@
 package com.daishuaiqing.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +11,8 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 @Entity
+@SQLDelete(sql = "update article set delete_flag=1 where id=?")
+@Where(clause = "delete_flag = 0")
 public class Article implements Serializable {
 
     @Id

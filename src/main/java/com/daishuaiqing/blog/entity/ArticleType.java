@@ -2,6 +2,8 @@ package com.daishuaiqing.blog.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 
 import javax.persistence.Entity;
@@ -11,6 +13,8 @@ import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 @Entity
+@SQLDelete(sql = "update article_type set delete_flag=1 where id=?")
+@Where(clause = "delete_flag = 0")
 public class ArticleType {
 
     @Id

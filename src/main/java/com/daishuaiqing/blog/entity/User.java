@@ -1,5 +1,7 @@
 package com.daishuaiqing.blog.entity;
 
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.*;
 import java.io.Serializable;
