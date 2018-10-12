@@ -3,6 +3,8 @@ package com.daishuaiqing.blog.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
@@ -10,6 +12,7 @@ import java.util.Date;
 public class Article implements Serializable {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private Integer typeId;
     private Integer createTime;
