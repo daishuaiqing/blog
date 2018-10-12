@@ -40,18 +40,18 @@ public class UserController {
         return userService.update(user);
     }
 
-    @ApiOperation("新增用户")
-    @PostMapping("/user/save")
-    public int save(@RequestBody User user) {
-        return userService.save(user);
-    }
-
     @ApiOperation("删除用户")
     @DeleteMapping("/user/delete")
     public int delete(User user) {
         return userService.delete(user);
     }
 */
+    @ApiOperation("新增用户")
+    @PostMapping("/user/save")
+    public User save(@RequestBody User user) {
+        return userService.save(user);
+    }
+
     @ApiOperation("用户登录")
     @PostMapping("/user/login")
     public MyResult login(@RequestBody User user){

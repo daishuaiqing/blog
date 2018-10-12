@@ -33,4 +33,8 @@ public class UserService {
     public User getToken(String token) {
         return (User) localCache.getValue(token);
     }
+
+    public User save(User user) {
+        return userDao.save(user);
+    }
 }
