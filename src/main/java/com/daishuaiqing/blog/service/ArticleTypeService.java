@@ -31,6 +31,6 @@ public class ArticleTypeService{
 
     public Boolean delete(ArticleType articleType) {
         articleTypeDao.deleteById(articleType.getId());
-        return articleTypeDao.existsById(articleType.getId());
+        return !articleTypeDao.existsById(articleType.getId());
     }
 }

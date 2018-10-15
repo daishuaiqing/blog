@@ -21,6 +21,7 @@ public class ArticleService {
     }
 
     public Article update(Article article) {
+        article.setDeleteFlag(false);
         return articleDao.save(article);
     }
 
@@ -30,6 +31,6 @@ public class ArticleService {
 
     public Boolean delete(Article article) {
         articleDao.deleteById(article.getId());
-        return articleDao.existsById(article.getId());
+        return !articleDao.existsById(article.getId());
     }
 }
