@@ -1,6 +1,8 @@
 server:
   port: 8888
 spring:
+  profiles:
+    active: dev
   datasource:
     driver-class-name: org.sqlite.JDBC
     url: jdbc:sqlite:blog.db
@@ -11,4 +13,3 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
-

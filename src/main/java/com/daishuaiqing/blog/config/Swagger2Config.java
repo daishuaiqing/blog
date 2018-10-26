@@ -1,5 +1,6 @@
 package com.daishuaiqing.blog.config;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
@@ -19,21 +20,37 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class Swagger2Config {
+    @Value("${swagger.show}")
+    private boolean swaggerShow;
     /**
      * 添加摘要信息(Docket)
      */
     @Bean
     public Docket controllerApi() {
-        return new Docket(DocumentationType.SWAGGER_2)
-                .apiInfo(new ApiInfoBuilder()
-                        .title("标题：博客_接口文档")
-                        .description("描述：主要用于个人文章发布...")
-                        .contact(new Contact("老七",null,null))
-                        .version("版本号:1.0")
-                        .build())
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.daishuaiqing.blog.controller"))
-                .paths(PathSelectors.any())
-                .build();
+        if(swaggerShow){
+            return new Docket(DocumentationType.SWAGGER_2)
+                    .apiInfo(new ApiInfoBuilder()
+                            .title("博客_接口文档")
+                            .description("")
+                            .contact(new Contact("代帅卿","",""))
+                            .version("1.0")
+                            .build())
+                    .select()
+                    .apis(RequestHandlerSelectors.basePackage("com.daishuaiqing.blog.controller"))
+                    .paths(PathSelectors.any())
+                    .build();
+        }else{
+            return new Docket(DocumentationType.SWAGGER_2)
+                    .apiInfo(new ApiInfoBuilder()
+                            .title("")
+                            .description("")
+                            .contact(new Contact("","",""))
+                            .version("")
+                            .build())
+                    .select()
+                    .apis(RequestHandlerSelectors.basePackage("com.daishuaiqing.blog.controller"))
+                    .paths(PathSelectors.none())
+                    .build();
+        }
     }
 }
