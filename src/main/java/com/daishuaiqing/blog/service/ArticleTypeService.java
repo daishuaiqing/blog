@@ -18,7 +18,7 @@ public class ArticleTypeService{
     }
 
     public ArticleType get(ArticleType articleType) {
-        return articleTypeDao.findById(articleType.getId()).get();
+        return articleTypeDao.findOne(articleType.getId());
     }
 
     public ArticleType update(ArticleType articleType) {
@@ -30,7 +30,7 @@ public class ArticleTypeService{
     }
 
     public Boolean delete(ArticleType articleType) {
-        articleTypeDao.deleteById(articleType.getId());
-        return !articleTypeDao.existsById(articleType.getId());
+        articleTypeDao.delete(articleType.getId());
+        return !articleTypeDao.exists(articleType.getId());
     }
 }

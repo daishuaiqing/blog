@@ -10,7 +10,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 @Entity
 @SQLDelete(sql = "update article_type set delete_flag=1 where id=?")
@@ -20,7 +19,7 @@ public class ArticleType {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @NotBlank(message = "分类名称不能为空")
+    @NotNull(message = "分类名称不能为空")
     private String typeName;
     @NotNull(message = "权重不能为空")
     private Integer level;

@@ -1,12 +1,16 @@
 package com.daishuaiqing.blog.controller;
 
 import com.daishuaiqing.blog.entity.Article;
+import com.daishuaiqing.blog.model.MyPage;
 import com.daishuaiqing.blog.service.ArticleService;
 import com.daishuaiqing.blog.util.DateUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,8 +23,9 @@ public class ArticleController {
 
     @ApiOperation("文章列表")
     @GetMapping("/article/list")
-    public List<Article> list(Article article) {
-        return articleService.list(article);
+    public Page<Article> list(Article article, MyPage page) {
+        Sort sort = new Sort(Sort.Direction.DESC,"id");
+        return articleService.list(article, new PageRequest(page.getPage(),page.getSize(),sort));
     }
 
     @ApiOperation("文章信息")

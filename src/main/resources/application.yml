@@ -7,12 +7,8 @@ spring:
     username:
     password:
   jpa:
-    database-platform: com.daishuaiqing.blog.config.SQLiteDialect
+    database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
     hibernate:
       ddl-auto: update
     show-sql: true
 
-logging:
-  level:
-    #打印SQL信息
-    com.daishuaiqing.blog.mapper: debug
